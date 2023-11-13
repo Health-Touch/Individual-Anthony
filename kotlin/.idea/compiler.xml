@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="kotlinRede" target="1.5" />
+      <module name="kotlin" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

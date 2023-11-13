@@ -53,6 +53,12 @@ class Repositorio {
 
                 showMessageDialog(null, "Bem Vindo(a) $nome - Logado como: $cargo")
 
+                codigoPy.monitoramento()
+
+                showMessageDialog(null, """
+                    Seu monitoramento está rodando
+                           Verifique seu Banco!!!
+                    """.trimIndent())
 
             } else {
                 showMessageDialog(null, "Login Inválido")

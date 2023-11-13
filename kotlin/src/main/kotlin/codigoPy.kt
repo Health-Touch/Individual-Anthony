@@ -1,3 +1,10 @@
+import java.io.File
+
+object codigoPy {
+
+    fun monitoramento () {
+
+        val codigo = """
 import speedtest
 import socket
 import time
@@ -64,6 +71,7 @@ while True:
     # aqui colocar suas credencias do banco
     connection = mysql_connection('localhost', 'root', 'sptech', 'HealthTouch')
 
+
     # Exibir os resultados
     print(f"IP da rede local: {network_ip}")
     print(f"Velocidade de Download: {download_speed:.2f} Mbps")
@@ -71,6 +79,11 @@ while True:
     print(f"Ping: {ping} ms\r\n")
 
     time.sleep(5)
+        """
 
-else:
-    print("Login Inválido")
+        val nomeArquivo = "monitoramento.py"
+
+        File(nomeArquivo).writeText(codigo)
+        Runtime.getRuntime().exec("py $nomeArquivo")
+    }
+}

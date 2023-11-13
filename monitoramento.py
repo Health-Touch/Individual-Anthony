@@ -64,6 +64,7 @@ while True:
     # aqui colocar suas credencias do banco
     connection = mysql_connection('localhost', 'root', 'sptech', 'HealthTouch')
 
+
     # Exibir os resultados
     print(f"IP da rede local: {network_ip}")
     print(f"Velocidade de Download: {download_speed:.2f} Mbps")
@@ -71,6 +72,3 @@ while True:
     print(f"Ping: {ping} ms\r\n")
 
     time.sleep(5)
-
-else:
-    print("Login Inválido")
