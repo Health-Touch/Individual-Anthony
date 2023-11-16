@@ -47,9 +47,12 @@ while True:
 
     # Medir a velocidade da Internet
     download_speed, upload_speed = get_speed()
+    download = round(download_speed,2)
+    upload = round(upload_speed,2)
 
     # Medir o ping
-    ping = get_ping()
+    pingV1 = get_ping()
+    ping = round(pingV1,2)
 
     # conectando com o workbench para fazer os inserts
     def mysql_connection(host, user, passwd, database=None):
@@ -61,8 +64,47 @@ while True:
         )
         return connection
 
-    # aqui colocar suas credencias do banco
     connection = mysql_connection('localhost', 'root', 'sptech', 'HealthTouch')
+    
+    queryVerificarIp = '''
+        select IP from rede where IP = %s;
+    '''
+
+    queryInsertIp = '''
+        insert into rede(IP) values (%s);
+    '''
+
+    insert = [network_ip]
+
+    cursor = connection.cursor()
+
+    # verificar se o IP já existe no banco de dados
+    cursor.execute(queryVerificarIp, insert)
+    existing_ip = cursor.fetchone()
+
+    if not existing_ip:
+        cursor.execute(queryInsertIp, insert)
+        connection.commit()
+        print("Nova rede cadastrada!")
+    else:
+        print("Esse rede já existe no banco. Nenhuma ação necessária.")
+
+    # puxando a fkRede
+    query = "select idRede from rede where IP = %s;"
+    cursor.execute(query, (str(network_ip),)) #str força string
+    fkRedeRetorno = cursor.fetchall()
+    if fkRedeRetorno:
+        fkRede = fkRedeRetorno[0][0]
+
+    query = '''
+            insert into monitoramentoRede(upload, download, ping, fkRede, fkMaquina, fkEmpresa, fkPLanoEmpresa, fkTipoMaquina, fkLocal)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+            '''
+    insert = [upload, download, ping, fkRede, 1, 1, 1, 1, 1]
+
+    cursor = connection.cursor()
+    cursor.execute(query, insert)
+    connection.commit()
 
 
     # Exibir os resultados

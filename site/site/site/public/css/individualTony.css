@@ -1,0 +1,631 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.divPai {
+    display: flex;
+    background-color: #D9D9D9;
+}
+
+/* começo do menu lateral*/
+.divPaiLateral {
+    background-color: #020F1F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw;
+    height: 100vh;
+}
+
+.filhoLateral {
+    width: 10vw;
+    height: 96vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divNomeEmpresa {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 2%;
+}
+
+#textoEmpresa {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#nomeEmpresa {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.divMainMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 7%;
+}
+
+#pMainMenu {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divPaiOpcoesMenu {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    top: 8%;
+}
+
+.divPaiOpcoesMenu a {
+    text-decoration: none;
+}
+
+.divHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 6.7vw;
+}
+
+#iconMenuLateralHome {
+    width: 2vw;
+    height: 4vh;
+}
+
+#pMenuLateral {
+    color: white;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.divEstatisticas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconEstatiscasLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divEspaco {
+    width: 5vw;
+    height: 5vh;
+}
+
+.divDashboards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.5vw;
+    position: relative;
+    top: 18%;
+}
+
+#iconDashboardsLateral {
+    width: 1.8vw;
+    height: 3.8vh;
+}
+
+.divComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 3%;
+}
+
+#iconComputadorLateral {
+    width: 2vw;
+    height: 4.2vh;
+}
+
+.divCadastroComputador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.5vw;
+    position: relative;
+    top: 8%;
+}
+
+#iconComputadorCadLateral {
+    width: 3vw;
+    height: 4vh;
+}
+
+.divAnaliseEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7.2vw;
+    position: relative;
+    top: 13%;
+}
+
+#iconAnaliseEquipe {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divCadastroEquipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.2vw;
+    position: relative;
+    top: 23%;
+}
+
+#iconCadastroEquipe {
+    width: 2vw;
+    height: 3.5vh;
+}
+
+.divHelp {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+.divPaiHelpMenu {
+    width: 9vw;
+    height: 5vh;
+    position: relative;
+    top: 20%;
+}
+
+#pHelp {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divHelpDesk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 7vw;
+    position: relative;
+    top: 5%;
+}
+
+#iconHelpDesk {
+    width: 2vw;
+    height: 4vh;
+}
+
+.divConfiguracoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 8.8vw;
+    position: relative;
+    top: 35%;
+}
+
+#iconConfiguracoes {
+    width: 2vw;
+    height: 4vh;
+}
+
+#logoMenuLateral {
+    width: 7vw;
+    height: 8vh;
+    position: relative;
+    top: 70%;
+}
+
+.divEspacoV2 {
+    background-color: rgba(255, 255, 255, 0.409);
+    width: 9vw;
+    height: 0.1vh;
+    position: relative;
+    top: 17%;
+
+}
+/* fim do menu lateral */
+
+/* começo da cabeçalho */
+.divPaiCabecalho {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}   
+
+.filhoCabecalho {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: white;
+}
+
+.direitaCabecalho {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 30px;
+}
+
+.divPerfilCabecalho {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 14vw;
+    height: 7vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.textosIcon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tituloPerfil {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#cargoPerfil {
+    font-size: 12px;
+}
+
+.iconPerfilCabecalho {
+    width: 3vw;
+    height: 6vh;
+}
+
+.setaPerfilCabecalho {
+    width: 1vw;
+    height: 2vh;
+}
+
+.emailIconCabecalho {
+    width: 1.5vw;
+    height: 3vh;
+}
+
+.sinoIconCabecalho {
+    width: 1.5vw;
+    height: 
+    3vh;
+}
+
+.esquerdaCabecalho {
+    width: 20vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.inputLogin {
+    border-radius: 15px;
+    border: none;
+    height: 5vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+    display: flex;
+    margin-left: 30px;
+}
+
+.inputLogin::placeholder {
+    font-size: 11px;
+    position: relative;
+    top: -5%;
+    left: 5%;
+}
+
+.lupaBusca {
+    width: 2vw;
+    height: 3.5vh;
+    position: relative;
+    right: 13%;
+}
+
+.setaPerfilCabecalho:hover {
+    cursor: pointer;
+}
+
+.menuPerfil ul {
+    padding: 0;
+}
+
+.btnSair {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+
+.btnSair:hover {
+    width: 90px;
+    border-radius: 40px;
+    transition-duration: .3s;
+}
+
+.btnSair:hover .sign {
+    width: 45%;
+    transition-duration: .3s;
+}
+
+.btnSair:hover .txtBtn {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+}
+
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign svg {
+    width: 17px;
+}
+
+.sign svg path {
+    fill: white;
+}
+
+.txtBtn {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    transition-duration: .3s;
+}
+/* fim do cabeçalho */
+
+/* começo do conteudo */
+.divPaiConteudo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filhoConteudo {
+    width: 90%;
+    height: 88%;
+    display: flex;
+    flex-direction: column;
+}
+
+.divTitulo {
+    display: flex;
+    align-items: start;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: -3%;
+}
+
+#pTituloSetor {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#pNomeSetor {
+    font-size: 20px;
+    font-weight: 450;
+}
+
+#pNomeComputador {
+    font-size: 15px;
+}
+
+.btnTrocar {
+    border: none;
+    background-color: #38b0ac;
+    color: #fff;
+    padding: 5px;
+    border-radius: 15px;
+    width: 130px;
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 8px 0px 0px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    cursor: pointer;
+}
+
+.divPaiKpi {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divKpi {
+    background-color: white;
+    width: 21%;
+    height: 80%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+}
+
+.barraLateral {
+    background-color: #26ABA7;
+    width: 1.5%;
+    height: 70%;
+    align-self: center;
+    position: relative;
+    right: 3%;
+}
+
+.conteudoKpi {
+    width: 70%;
+    height: 80%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    left: 4%;
+}
+
+#pTituloRede {
+    font-size: 14px;
+}
+
+#pNomeRede {
+    font-size: 22px;
+}
+
+#pIpRede {
+    font-size: 12px;
+}
+
+.iconKpi {
+    width: 17%;
+    height: 30%;
+    position: relative;
+    top: 10%
+}
+
+#imgIcon {
+    width: 2vw;
+    height: 4vh;
+    position: relative;
+    left: 40%;
+}
+
+#pUploadRede {
+    font-size: 22px;
+}
+
+#pStatusUpload {
+    font-size: 9px;
+    color: #25FF00;
+}
+
+#pDownloadRede {
+    font-size: 22px;
+}
+
+#pStatusDownload {
+    font-size: 9px;
+    color: #FD3333;
+}
+
+#pPingRede {
+    font-size: 22px;
+}
+
+#pStatusPing {
+    font-size: 9px;
+    color: #25FF00;
+}
+
+.divEspaco {
+    width: 100%;
+    height: 8%;
+}
+
+.divGraficos {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.divDashboard {
+    background-color: white;
+    width: 60%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.divAlertas {
+    background-color: white;
+    width: 33%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow-y: scroll;
+}
+
+#tituloAlertas {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    top: 5%;
+}
+
+.espaco1 {
+    width: 100%;
+    height: 15%;
+}
+
+.boxAvisos {
+    width: 85%;
+    height: 15%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+    left: 8%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#iconAlerta {
+    width: 9%;
+    height: 60%; 
+}
+
+#statusAlerta {
+    font-size: 15px;
+}
+
+#dataAlerta {
+    font-size: 13px;
+}
+
+.espaco2 {
+    width: 100%;
+    height: 7%;
+}
+
+/* fim do conteudo */
