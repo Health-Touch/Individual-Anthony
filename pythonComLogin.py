@@ -100,21 +100,21 @@ while True:
     # data
     data = datetime.datetime.now()
 
-    while True:
-        query = '''
-                insert into monitoramentoRede(upload, download, ping, dataHora, fkRede, fkMaquina, fkEmpresa, fkPLanoEmpresa, fkTipoMaquina, fkLocal)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-                '''
-        insert = [upload, download, ping, data, fkRede, ${fkMaquina}, ${fkEmpresa}, ${fkPlano}, ${fkTipoMaquina}, ${fkLocal}]
+    query = '''
+            insert into monitoramentoRede(upload, download, ping, dataHora, fkRede, fkMaquina, fkEmpresa, fkPLanoEmpresa, fkTipoMaquina, fkLocal)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+            '''
+    
+    insert = (upload, download, ping, data, fkRede, 1, 1, 1, 1, 1)
 
-        cursor = connection.cursor()
-        cursor.execute(query, insert)
-        connection.commit()
+    cursor = connection.cursor()
+    cursor.execute(query, insert)
+    connection.commit()
 
-        # Exibir os resultados
-        print(f"IP da rede local: {network_ip}")
-        print(f"Velocidade de Download: {download_speed:.2f} Mbps")
-        print(f"Velocidade de Upload: {upload_speed:.2f} Mbps")
-        print(f"Ping: {ping} ms\r\n")
+    # Exibir os resultados
+    print(f"IP da rede local: {network_ip}")
+    print(f"Velocidade de Download: {download_speed:.2f} Mbps")
+    print(f"Velocidade de Upload: {upload_speed:.2f} Mbps")
+    print(f"Ping: {ping} ms\r\n")
 
-        time.sleep(5)
+    time.sleep(5)
