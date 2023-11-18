@@ -1,4 +1,3 @@
-
 import speedtest
 import socket
 import datetime
@@ -98,7 +97,7 @@ while True:
     '''
 
     insert = [
-        upload, download, ping, data, fkRede, 1, 1, 3, 1, 1
+        upload, download, ping, data, fkRede, 1, 1, 1, 1, 1
     ]
 
     cursor.execute(query, insert)
@@ -114,4 +113,3 @@ while True:
     
 else:
     print("Login Inválido")
- 
