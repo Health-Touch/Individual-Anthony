@@ -63,5 +63,21 @@ router.post('/updateStatusFunc', function (req, res) {
   usuarioController.updateStatusFunc(req, res)
 })
 
+router.get('/selectUpload/:idMaquina', function (req, res) {
+  usuarioController.selectUpload(req, res);
+})
+
+router.get('/selectDownload/:idMaquina', function (req, res) {
+  usuarioController.selectDownload(req, res);
+})
+
+router.get('/selectPing/:idMaquina', function (req, res) {
+  usuarioController.selectPing(req, res);
+})
+
+router.get('/selectIp/:idMaquina', function (req, res) {
+  usuarioController.selectIp(req, res);
+})
+
 
 module.exports = router

@@ -215,6 +215,44 @@ function updateStatusFunc(opcaoUpdate, idFunc) {
   return database.executar(instrucao)
 }
 
+// começo do individual do tony
+
+function selectUpload(idMaquina) {
+  console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():", idMaquina)
+  var instrucao = `
+  SELECT upload FROM monitoramentoRede WHERE fkMaquina = ${idMaquina} ORDER BY dataHora DESC LIMIT 1;
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function selectDownload(idMaquina) {
+  console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():", idMaquina)
+  var instrucao = `
+  SELECT download FROM monitoramentoRede WHERE fkMaquina = ${idMaquina} ORDER BY dataHora DESC LIMIT 1;
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function selectPing(idMaquina) {
+  console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():", idMaquina)
+  var instrucao = `
+  SELECT ping FROM monitoramentoRede WHERE fkMaquina = ${idMaquina} ORDER BY dataHora DESC LIMIT 1;
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function selectIp(idMaquina) {
+  console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():", idMaquina)
+  var instrucao = `
+  SELECT ip FROM monitoramentoRede join rede on fkRede = idRede WHERE fkMaquina = ${idMaquina} ORDER BY dataHora DESC LIMIT 1;
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
 module.exports = {
   entrar,
   cadastrarEmpresa,
@@ -229,5 +267,9 @@ module.exports = {
   atualizarSenha,
   updateStatusMaq,
   updateStatusFunc,
-  listarSetores
+  listarSetores,
+  selectUpload,
+  selectDownload,
+  selectPing,
+  selectIp
 }

@@ -21,6 +21,10 @@ function detalhada() {
   window.location = 'analise/AnaliseDetalhada.html'
 }
 
+function rede() {
+  window.location = 'analise/individualTony.html'
+}
+
 function exibirMenuPerfil() {
   var menu = document.getElementById('menuPerfil')
   if (menu.style.display === 'block') {

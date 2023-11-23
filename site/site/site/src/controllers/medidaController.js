@@ -124,7 +124,26 @@ function buscarMedidasEmTempoRealRam(req, res) {
     });
 }
 
+// começo do individual do tony
+function buscarMedidasRede(req, res) {
 
+    var idMaquina =  req.params.idMaquina;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.buscarMedidasRede(idMaquina).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+// fim do individual do tony
 
 module.exports = {
     buscarUltimasMedidasCpu,
@@ -132,6 +151,6 @@ module.exports = {
     buscarUltimasMedidasDisco,
     buscarMedidasEmTempoRealDisco,
     buscarUltimasMedidasRam,
-    buscarMedidasEmTempoRealRam
-
+    buscarMedidasEmTempoRealRam,
+    buscarMedidasRede
 }

@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/individualTony.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Análise Rede | Health Touch</title>
     <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
 </head>
 
-<body onload="">
+<body>
 
     <div class="divPai">
         <!-- inicio menu lateral -->
@@ -143,24 +144,24 @@
             <!-- começo conteudo pagina -->
             <div class="divPaiConteudo">
                 <div class="filhoConteudo">
-                    
+
                     <div class="divTitulo">
-                        <p id="pTituloSetor">Setor <span id="numSetor">1</span></p> 
-                        <p id="pNomeSetor">Pediatria</p> 
-                        <p id="pNomeComputador">Computador <span id="numComputador">1</span></p>
+                        <p id="pTituloSetor">Sala <span id="numSala"></span></p>
+                        <p id="pNomeSetor"></p>
+                        <p id="pNomeComputador">Máquina <span id="numComputador"></span></p>
                         <button class="btnTrocar" onclick="trocarComputador()">Trocar</button>
                     </div>
 
                     <div class="divPaiKpi">
-                        
+
                         <div class="divKpi">
-                            
+
                             <div class="barraLateral"></div>
 
                             <div class="conteudoKpi">
-                                <p id="pTituloRede">Nome da Rede</p>
-                                <p id="pNomeRede">HL_STUDENT</p>
-                                <p id="pIpRede">131.465.251</p>
+                                <p id="pTituloRede">Ip</p>
+                                <p id="pNomeRede"></p>
+                                <p id="pIpRede">Rede Conectada</p>
                             </div>
 
                             <div class="iconKpi">
@@ -174,9 +175,9 @@
                             <div class="barraLateral"></div>
 
                             <div class="conteudoKpi">
-                                <p id="pTituloRede">Upload da Rede</p>
-                                <p id="pUploadRede">20<span> mb</span></p>
-                                <p id="pStatusUpload">↑ Rede Estável</p>
+                                <p id="pTituloRede">Velocidade de Upload</p>
+                                <p id="pUploadRede"><span></span></p>
+                                <p id="pStatusUpload"></p>
                             </div>
 
                             <div class="iconKpi">
@@ -190,9 +191,9 @@
                             <div class="barraLateral"></div>
 
                             <div class="conteudoKpi">
-                                <p id="pTituloRede">Download da Rede</p>
-                                <p id="pDownloadRede">10<span> mb</span></p>
-                                <p id="pStatusDownload">↓ Rede Instável</p>
+                                <p id="pTituloRede">Velocidade de Download</p>
+                                <p id="pDownloadRede"><span></span></p>
+                                <p id="pStatusDownload"></p>
                             </div>
 
                             <div class="iconKpi">
@@ -207,8 +208,8 @@
 
                             <div class="conteudoKpi">
                                 <p id="pTituloRede">Ping</p>
-                                <p id="pPingRede">8<span> ms</span></p>
-                                <p id="pStatusPing">↑ Rede Estável</p>
+                                <p id="pPingRede"><span></span></p>
+                                <p id="pStatusPing"></p>
                             </div>
 
                             <div class="iconKpi">
@@ -222,55 +223,55 @@
                     <div class="divEspaco"></div>
 
                     <div class="divGraficos">
-                        
+
                         <div class="divDashboard">
                             <canvas id="myChart" style="width:40vh; width:40vw"></canvas>
                         </div>
 
                         <div class="divAlertas">
-                            
-                            
-                                <p id="tituloAlertas">Histórico Alertas</p>
 
-                                <div class="espaco1"></div>
 
-                                <div class="boxAvisos">
-                                    <img id="iconAlerta" src="../assets/img/aviso-orange.png">
+                            <p id="tituloAlertas">Histórico Alertas</p>
 
-                                    <p id="statusAlerta" >Upload Baixo</p>
+                            <div class="espaco1"></div>
 
-                                    <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
-                                </div>
+                            <div class="boxAvisos">
+                                <img id="iconAlerta" src="../assets/img/aviso-orange.png">
 
-                                <div class="espaco2"></div>
+                                <p id="statusAlerta">Upload Baixo</p>
 
-                                <div class="boxAvisos">
-                                    <img id="iconAlerta" src="../assets/img/aviso-red.png">
+                                <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
+                            </div>
 
-                                    <p id="statusAlerta" >Upload Baixo</p>
+                            <div class="espaco2"></div>
 
-                                    <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
-                                </div>
+                            <div class="boxAvisos">
+                                <img id="iconAlerta" src="../assets/img/aviso-red.png">
 
-                                <div class="espaco2"></div>
+                                <p id="statusAlerta">Upload Baixo</p>
 
-                                <div class="boxAvisos">
-                                    <img id="iconAlerta" src="../assets/img/aviso-orange.png">
+                                <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
+                            </div>
 
-                                    <p id="statusAlerta" >Upload Baixo</p>
+                            <div class="espaco2"></div>
 
-                                    <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
-                                </div>
+                            <div class="boxAvisos">
+                                <img id="iconAlerta" src="../assets/img/aviso-orange.png">
 
-                                <div class="espaco2"></div>
+                                <p id="statusAlerta">Upload Baixo</p>
 
-                                <div class="boxAvisos">
-                                    <img id="iconAlerta" src="../assets/img/aviso-red.png">
+                                <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
+                            </div>
 
-                                    <p id="statusAlerta" >Upload Baixo</p>
+                            <div class="espaco2"></div>
 
-                                    <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
-                                </div>
+                            <div class="boxAvisos">
+                                <img id="iconAlerta" src="../assets/img/aviso-red.png">
+
+                                <p id="statusAlerta">Upload Baixo</p>
+
+                                <p id="dataAlerta">02/10/2023 <br> 9:30:14</p>
+                            </div>
                         </div>
                     </div>
 
@@ -283,55 +284,248 @@
 </body>
 
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
+
+    window.onload = selectUpload();
+    window.onload = selectDownload();
+    window.onload = selectPing();
+    window.onload = selectIp();
+    window.onload = obterMedidasRede();
 
     function trocarComputador() {
         window.location = "../setores.html"
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    function selectUpload() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/usuarios/selectUpload/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-    function limparSessao() {
-        sessionStorage.clear();
-        window.location = '../login.html'
-    }
+                    var elementoP = document.getElementById('pUploadRede');
+                    pUploadRede.innerHTML = `${resposta.upload} mb`
 
-    // começo do chart
-    const ctx = document.getElementById('myChart');
+                    if (resposta.upload <= 5) {
+                        pStatusUpload.innerHTML = "↑ Upload Estável"
+                    } else {
+                        pStatusUpload.innerHTML = "↓ Upload Instável"
+                    }
 
-    new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho'],
-            datasets: [{
-              label: 'temperatura média',
-              data: [22, 24, 27, 23, 20, 18],
-              borderWidth: 1
-            },
-            {
-              label: 'umidade média',
-              data: [90, 89, 93, 87, 88, 82],
-              borderWidth: 1
+                });
+            } else {
+                throw ('Houve um erro na API!');
             }
-            ]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
+        }).catch(function (resposta) {
+            console.error(resposta);
         });
-    // fim do chart
+    }
 
+    if (pStatusUpload.innerHTML == "↑ Upload Estável") {
+        pStatusUpload.style.color = "#1dd800"
+    } else {
+        pStatusUpload.style.color = "#FD3333"
+    }
+
+    function selectDownload() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/usuarios/selectDownload/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var elementoP = document.getElementById('pUpload');
+                    pDownloadRede.innerHTML = `${resposta.download} mb`
+
+                    if (resposta.download <= 5) {
+                        pStatusDownload.innerHTML = "↑ Download Estável"
+                    } else {
+                        pStatusDownload.innerHTML = "↓ Download Instável"
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    if (pStatusDownload.innerHTML == "↑ Download Estável") {
+        pStatusDownload.style.color = "#1dd800"
+    } else {
+        pStatusDownload.style.color = "#FD3333"
+    }
+
+    function selectPing() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/usuarios/selectPing/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var elementoP = document.getElementById('pPingRede');
+                    pPingRede.innerHTML = `${resposta.ping} ms`
+
+                    if (resposta.ping <= 5) {
+                        pStatusPing.innerHTML = "↑ Ping Estável"
+                    } else {
+                        pStatusPing.innerHTML = "↓ Ping Instável"
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    if (pStatusPing.innerHTML == "↑ Ping Estável") {
+        pStatusPing.style.color = "#1dd800"
+    } else {
+        pStatusPing.style.color = "#FD3333"
+    }
+
+    function selectIp() {
+        var idMaquina = sessionStorage.ID_MAQUINA
+        fetch(`/usuarios/selectIp/${idMaquina}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var elementoP = document.getElementById('pNomeRede');
+                    pNomeRede.innerHTML = `${resposta.ip}`
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function obterMedidasRede(idMaquina) {
+
+        var idMaquina = sessionStorage.ID_MAQUINA
+
+        fetch(`/medidas/tempo-medidasRede/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos da Download: ${JSON.stringify(resposta)}`);
+
+                    plotarGrafico(resposta, idMaquina);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta, idMaquina) {
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Upload',
+                    data: [],
+                    borderColor: '#26ABA7',
+
+                    tension: 0.1
+                },
+                {
+                    label: 'Download',
+                    data: [],
+                    borderColor: '#115ED2',
+                    tension: 0.1
+                }
+            ]
+        };
+
+        let options = {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Histórico de Velocidade', // Adicione o título desejado aqui
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Mb'
+                    }
+                }]
+            }
+        };
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.Horário);
+            dados.datasets[0].data.push(registro.upload);
+            dados.datasets[1].data.push(registro.download);
+            console.log(`Registro ${i}: Upload=${registro.upload}, Download=${registro.download}`);
+        }
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+            options: options
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChart`),
+            config
+        );
+    }
+
+    var cargo = sessionStorage.NIVELACESSO_COLABORADOR;
+
+    if (cargo == "RL") {
+        cargo = "Representante"
+        SumirCadMaq.style.display = "none";
+        SumirAnaliseMaq.style.display = "none";
+    } else if (cargo == "GT") {
+        cargo = "Gerente TI"
+    }
+    else {
+        cargo = "Equipe TI";
+        SumirCadMaq.style.display = "none";
+        SumirCadEquipe.style.display = "none";
+        SumirAnaliseFunc.style.display = "none";
+        divCadastroEquipe.style.top = "18%";
+    }
+
+    cargoPerfil.innerHTML = cargo;
     nomeEmpresa.innerHTML = sessionStorage.NOME_FANTASIA_COLABORADOR;
-    // numComputador.innerHTML = sessionStorage.ID_MAQUINA;
-    // numSetor.innerHTML = sessionStorage.
+    tituloPerfil.innerHTML = sessionStorage.NOME_COLABORADOR;
+    pNomeSetor.innerHTML = sessionStorage.NOME_SETOR;
+    numSala.innerHTML = sessionStorage.ID_SALA;
+    numComputador.innerHTML = sessionStorage.ID_MAQUINA;
 
 </script>

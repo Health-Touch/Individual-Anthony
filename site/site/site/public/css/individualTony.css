@@ -504,7 +504,7 @@
 }
 
 #pTituloRede {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 #pNomeRede {
@@ -534,8 +534,7 @@
 }
 
 #pStatusUpload {
-    font-size: 9px;
-    color: #25FF00;
+    font-size: 11px;
 }
 
 #pDownloadRede {
@@ -543,8 +542,7 @@
 }
 
 #pStatusDownload {
-    font-size: 9px;
-    color: #FD3333;
+    font-size: 11px;
 }
 
 #pPingRede {
@@ -552,8 +550,7 @@
 }
 
 #pStatusPing {
-    font-size: 9px;
-    color: #25FF00;
+    font-size: 11px;
 }
 
 .divEspaco {

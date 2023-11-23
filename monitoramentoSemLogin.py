@@ -109,6 +109,10 @@ while True:
     print(f"Velocidade de Upload: {upload_speed:.2f} Mbps")
     print(f"Ping: {ping} ms\r\n")
 
+    teste = 0
+    if teste == 1:
+        break
+
     time.sleep(40)
     
 else:

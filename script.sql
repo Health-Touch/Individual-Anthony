@@ -35,6 +35,9 @@ constraint pkComposta primary key (idEmpresa, fkPlano)
 insert into Empresa values 
 (null, 'Sus Santo André', '12345678912345', '2023-10-10', 1191234567, 3);
 
+insert into Empresa values 
+(null, 'teste', '12345678912345', '2023-10-10', 1191234567, 2);
+
 select * from Empresa;
 
 -- Endereço --
@@ -107,6 +110,7 @@ constraint pk_composta_colaborador primary key (idColaborador, fkEmpresa, fkStat
 );
 
 insert into Colaborador values (null, 'Fernanda Caramico', 'caramico@gmail.com', '123123', 37637602885, 1, 1, 1);
+insert into Colaborador values (null, 'tinkers', 'tinkers@gmail.com', '123123', 37637602885, 2, 1, 2);
 
 select * from Colaborador;
 
@@ -150,6 +154,9 @@ constraint pk_composta_local_sala primary key (idLocalSala, fkSetor)
 
 insert into LocalSala values
 (null, 2, 3, 1);
+
+insert into LocalSala values
+(null, 3, 2, 1);
 
 select * from LocalSala;
 
@@ -202,8 +209,9 @@ constraint fk_tipo_maquina  foreign key(fkTipoMaquina) references TipoMaquina(id
 constraint pk_composta_maquina primary key (idMaquina, fkEmpresa, fkPlanoEmpresa, fkStatusMaquina, fkTipoMaquina)
 );
 
-insert into Maquina values 
-(null, "Windows", 123456789, 1, 1, 1, 1, 1);
+insert into Maquina values (null, "Windows", 123456789, 1, 1, 1, 1, 1);
+insert into Maquina values (null, "Linux", 123456789, 2, 1, 2, 1, 2);
+insert into Maquina values (null, "Linux", 123456789, 2, 1, 2, 1, 1);
 
 select * from Maquina;
 
@@ -412,3 +420,8 @@ primary key (idMonitoramentoRede, fkRede, fkMaquina, fkEmpresa, fkPlanoEmpresa, 
 
 select * from monitoramentoRede;
 drop table monitoramentoRede;
+
+SELECT upload FROM monitoramentoRede ORDER BY dataHora DESC LIMIT 1;
+
+select upload, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = 2;
+select download, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = 2;

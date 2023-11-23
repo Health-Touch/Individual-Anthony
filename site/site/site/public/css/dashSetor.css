@@ -520,7 +520,7 @@
 
 .titulo{
     display: flex;
-    width: 65%;
+    width: 80%;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
@@ -547,6 +547,11 @@
 }
 
 .btn2{
+    background-color: black;
+    color: #fff;
+}
+
+.btn3{
     background-color: black;
     color: #fff;
 }
