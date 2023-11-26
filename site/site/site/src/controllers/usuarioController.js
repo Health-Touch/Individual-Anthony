@@ -391,7 +391,7 @@ function atualizarSenha(req, res) {
   var NovaSenha = req.body.NovaSenhaServer;
   var idColaborador = req.body.idColaboradorServer;
 
-                    idColaboradorServer: idColaborador
+  idColaboradorServer: idColaborador
 
   // Faça as validações dos valores
   if (NovaSenha == undefined) {
@@ -479,98 +479,98 @@ function updateStatusFunc(req, res) {
 }
 
 // começo do individual do tony
-
 function selectUpload(req, res) {
   var idMaquina = req.params.idMaquina
-    usuarioModel.selectUpload(idMaquina)
-      .then(
-        function (resultado) {
-          console.log(`\nResultados encontrados: ${resultado.length}`);
-          console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-          if (resultado.length == 1) {
-            console.log(resultado);
-            res.json(resultado[0]);
-          } else {
-            res.status(403).send("erro");
-          }
+  usuarioModel.selectUpload(idMaquina)
+    .then(
+      function (resultado) {
+        console.log(`\nResultados encontrados: ${resultado.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+        if (resultado.length == 1) {
+          console.log(resultado);
+          res.json(resultado[0]);
+        } else {
+          res.status(403).send("erro");
         }
-      ).catch(
-        function (erro) {
-          console.log(erro);
-          console.log("\nErro: ", erro.sqlMessage);
-          res.status(500).json(erro.sqlMessage);
-        }
-      );
-  }
-
-  function selectDownload(req, res) {
-    var idMaquina = req.params.idMaquina
-      usuarioModel.selectDownload(idMaquina)
-        .then(
-          function (resultado) {
-            console.log(`\nResultados encontrados: ${resultado.length}`);
-            console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-            if (resultado.length == 1) {
-              console.log(resultado);
-              res.json(resultado[0]);
-            } else {
-              res.status(403).send("erro");
-            }
-          }
-        ).catch(
-          function (erro) {
-            console.log(erro);
-            console.log("\nErro: ", erro.sqlMessage);
-            res.status(500).json(erro.sqlMessage);
-          }
-        );
-    }
-
-    function selectPing(req, res) {
-      var idMaquina = req.params.idMaquina
-        usuarioModel.selectPing(idMaquina)
-          .then(
-            function (resultado) {
-              console.log(`\nResultados encontrados: ${resultado.length}`);
-              console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-              if (resultado.length == 1) {
-                console.log(resultado);
-                res.json(resultado[0]);
-              } else {
-                res.status(403).send("erro");
-              }
-            }
-          ).catch(
-            function (erro) {
-              console.log(erro);
-              console.log("\nErro: ", erro.sqlMessage);
-              res.status(500).json(erro.sqlMessage);
-            }
-          );
       }
+    ).catch(
+      function (erro) {
+        console.log(erro);
+        console.log("\nErro: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      }
+    );
+}
 
-      function selectIp(req, res) {
-        var idMaquina = req.params.idMaquina
-          usuarioModel.selectIp(idMaquina)
-            .then(
-              function (resultado) {
-                console.log(`\nResultados encontrados: ${resultado.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-                if (resultado.length == 1) {
-                  console.log(resultado);
-                  res.json(resultado[0]);
-                } else {
-                  res.status(403).send("erro");
-                }
-              }
-            ).catch(
-              function (erro) {
-                console.log(erro);
-                console.log("\nErro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-              }
-            );
+function selectDownload(req, res) {
+  var idMaquina = req.params.idMaquina
+  usuarioModel.selectDownload(idMaquina)
+    .then(
+      function (resultado) {
+        console.log(`\nResultados encontrados: ${resultado.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+        if (resultado.length == 1) {
+          console.log(resultado);
+          res.json(resultado[0]);
+        } else {
+          res.status(403).send("erro");
         }
+      }
+    ).catch(
+      function (erro) {
+        console.log(erro);
+        console.log("\nErro: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      }
+    );
+}
+
+function selectPing(req, res) {
+  var idMaquina = req.params.idMaquina
+  usuarioModel.selectPing(idMaquina)
+    .then(
+      function (resultado) {
+        console.log(`\nResultados encontrados: ${resultado.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+        if (resultado.length == 1) {
+          console.log(resultado);
+          res.json(resultado[0]);
+        } else {
+          res.status(403).send("erro");
+        }
+      }
+    ).catch(
+      function (erro) {
+        console.log(erro);
+        console.log("\nErro: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      }
+    );
+}
+
+function selectIp(req, res) {
+  var idMaquina = req.params.idMaquina
+  usuarioModel.selectIp(idMaquina)
+    .then(
+      function (resultado) {
+        console.log(`\nResultados encontrados: ${resultado.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+        if (resultado.length == 1) {
+          console.log(resultado);
+          res.json(resultado[0]);
+        } else {
+          res.status(403).send("erro");
+        }
+      }
+    ).catch(
+      function (erro) {
+        console.log(erro);
+        console.log("\nErro: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      }
+    );
+}
+// fim do individual
 
 module.exports = {
   entrar,

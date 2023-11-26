@@ -108,14 +108,16 @@ function buscarMedidasEmTempoRealRam(ram) {
 }
 
 // começo do individual do tony
-function buscarMedidasUpload(idMaquina) {
+function buscarMedidasRede(idMaquina, limite_linhas) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select upload, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = ${idMaquina};`;
+        instrucaoSql = `select download, upload, DATE_FORMAT(dataHora, '%Hh:%i') 
+        AS Horário from monitoramentoRede where fkMaquina = ${idMaquina} order by idMonitoramentoRede desc limit ${limite_linhas};`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select upload, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = ${idMaquina};`;
+        instrucaoSql = `select download, upload, DATE_FORMAT(dataHora, '%Hh:%i') 
+        AS Horário from monitoramentoRede where fkMaquina = ${idMaquina} order by idMonitoramentoRede desc limit ${limite_linhas};`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -125,14 +127,17 @@ function buscarMedidasUpload(idMaquina) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasDownload(idMaquina) {
+function atualizarGrafico(idMaquina) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select download, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = ${idMaquina};`;
+        instrucaoSql = `select download, upload, DATE_FORMAT(dataHora, '%Hh:%i') 
+        AS Horário from monitoramentoRede where fkMaquina = ${idMaquina} order by idMonitoramentoRede;`;
+
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select download, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = ${idMaquina};`;
+        instrucaoSql = `select download, upload, DATE_FORMAT(dataHora, '%Hh:%i') 
+        AS Horário from monitoramentoRede where fkMaquina = ${idMaquina} order by idMonitoramentoRede;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -142,14 +147,52 @@ function buscarMedidasDownload(idMaquina) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasRede(idMaquina) {
+function buscarGraficoPing(idMaquina) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select download, upload, DATE_FORMAT(dataHora, '%Hh:%i') AS Horário from monitoramentoRede where fkMaquina = ${idMaquina};`;
+        instrucaoSql = `SELECT
+        legenda,
+        valor
+      FROM (
+        SELECT
+          CASE
+            WHEN ping <= 10 THEN "< 10"
+            WHEN ping > 10 AND ping <= 20 THEN "Até 20"
+            WHEN ping > 20 AND ping <= 30 THEN "Até 30"
+            ELSE "Maior que 30"
+          END AS legenda,
+          SUM(1) AS valor
+        FROM (
+          SELECT ping, dataHora, fkMaquina
+          FROM monitoramentoRede
+          WHERE fkMaquina = ${idMaquina}
+        ) AS t
+        GROUP BY legenda
+      ) AS t
+      ORDER BY legenda;`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select download, upload, DATE_FORMAT(dataHora, '%Hh:%i') AS Horário from monitoramentoRede where fkMaquina = ${idMaquina};`;
+        instrucaoSql = `SELECT
+        legenda,
+        valor
+      FROM (
+        SELECT
+          CASE
+            WHEN ping <= 10 THEN "< 10"
+            WHEN ping > 10 AND ping <= 20 THEN "Até 20"
+            WHEN ping > 20 AND ping <= 30 THEN "Até 30"
+            ELSE "Maior que 30"
+          END AS legenda,
+          SUM(1) AS valor
+        FROM (
+          SELECT ping, dataHora, fkMaquina
+          FROM monitoramentoRede
+          WHERE fkMaquina = ${idMaquina}
+        ) AS t
+        GROUP BY legenda
+      ) AS t
+      ORDER BY legenda;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -158,8 +201,6 @@ function buscarMedidasRede(idMaquina) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
-
 // fim do individual do tony
 
 module.exports = {
@@ -169,5 +210,7 @@ module.exports = {
     buscarMedidasEmTempoRealDisco,
     buscarUltimasMedidasRam,
     buscarMedidasEmTempoRealRam,
-    buscarMedidasRede
+    buscarMedidasRede,
+    atualizarGrafico,
+    buscarGraficoPing
 }

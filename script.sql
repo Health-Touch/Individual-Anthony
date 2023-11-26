@@ -2,6 +2,66 @@ drop database HealthTouch;
 create database HealthTouch;
 use HealthTouch;
 
+select * from monitoramentoRede;
+
+SELECT
+  SUM(CASE WHEN ping <= 10 THEN 1 ELSE 0 END) AS "Ping Menor que 10",
+  SUM(CASE WHEN ping > 10 and ping <= 20 THEN 1 ELSE 0 END) AS "Ping Até 20",
+  SUM(CASE WHEN ping > 20 and ping <= 30 THEN 1 ELSE 0 END) AS "Ping Até 30",
+  SUM(CASE WHEN ping > 30 THEN 1 ELSE 0 END) AS "Ping Maior que 30"
+FROM (SELECT ping, dataHora, fkMaquina FROM monitoramentoRede) AS t where fkMaquina = 1;
+
+SELECT
+  CASE
+    WHEN ping <= 10 THEN "Ping Menor que 10"
+    WHEN ping > 10 AND ping <= 20 THEN "Ping Até 20"
+    WHEN ping > 20 AND ping <= 30 THEN "Ping Até 30"
+    ELSE "Ping Maior que 30"
+  END AS legenda,
+  SUM(1) AS valor
+FROM (
+  SELECT ping, dataHora, fkMaquina
+  FROM monitoramentoRede
+  WHERE fkMaquina = 1
+) AS t
+GROUP BY legenda DESC;
+
+SELECT
+  legenda,
+  valor
+FROM (
+  SELECT
+    CASE
+      WHEN ping <= 10 THEN "Ping < 10"
+      WHEN ping > 10 AND ping <= 20 THEN "Ping Até 20"
+      WHEN ping > 20 AND ping <= 30 THEN "Ping Até 30"
+      ELSE "Ping > 30"
+    END AS legenda,
+    SUM(1) AS valor
+  FROM (
+    SELECT ping, dataHora, fkMaquina
+    FROM monitoramentoRede
+    WHERE fkMaquina = 1
+  ) AS t
+  GROUP BY legenda
+) AS t
+ORDER BY legenda;
+
+SELECT
+  GROUP_CONCAT(CASE WHEN ping <= 10 THEN CONCAT(ping, ',', dataHora, ',', fkMaquina) END) AS "Ping Menor que 10",
+  GROUP_CONCAT(CASE WHEN ping > 10 and ping <= 20 THEN CONCAT(ping, ',', dataHora, ',', fkMaquina) END) AS "Ping Até 20",
+  GROUP_CONCAT(CASE WHEN ping > 20 and ping <= 30 THEN CONCAT(ping, ',', dataHora, ',', fkMaquina) END) AS "Ping Até 30",
+  GROUP_CONCAT(CASE WHEN ping > 30 THEN CONCAT(ping, ',', dataHora, ',', fkMaquina) END) AS "Ping Maior que 30"
+FROM (SELECT ping, dataHora, fkMaquina FROM monitoramentoRede) AS t 
+WHERE fkMaquina = 1;
+
+
+select * from analiseToten;
+SELECT count(nomeBotao) as consultaMensal
+FROM analiseToten join Maquina on fkMaquina = 2
+WHERE MONTH(dataHora) = MONTH((SELECT MAX(dataHora) FROM analiseToten))
+  AND YEAR(dataHora) = YEAR((SELECT MAX(dataHora) FROM analiseToten));
+
 create table Plano (
 idPlano Int primary key auto_increment,
 tipoPlano varchar(45),
@@ -197,7 +257,8 @@ idMaquina int auto_increment,
 SO varchar(45),
 IP char(9),
 fkEmpresa int, 
-constraint fk_empresa_maquina foreign key(fkEmpresa) references Empresa(idEmpresa),
+fkPlano int, 
+constraint fk_empresa_maquina foreign key(fkEmpresa, fkPlano) references Empresa(idEmpresa, fkPlano),
 fkLocal int, 
 constraint fk_local_sala_maquina  foreign key(fkLocal) references LocalSala(idLocalSala),
 fkPlanoEmpresa int, 
@@ -253,8 +314,15 @@ fkTipoMaquina int,
 constraint fk_tipo_maquina_analise_toten foreign key(fkTipoMaquina) references TipoMaquina(idTipoMaquina),
 constraint pk_composta_analise_toten primary key (idAnaliseToten,fkMaquina, fkEmpresa,fkPlanoEmpresa,fkTipoMaquina)
 );
+select * from analiseToten;
 
 select * from AnaliseToten;
+
+-- select total de pessoas no mês
+select count(idAnaliseToten) from analiseToten where fkMaquina = 2;
+
+-- select gráfico principal
+select nomeBotao, count(nomeBotao) as opcoes from analiseToten where fkMaquina = 2 group by nomeBotao;
 
 -- Componetes --
 
@@ -421,7 +489,9 @@ primary key (idMonitoramentoRede, fkRede, fkMaquina, fkEmpresa, fkPlanoEmpresa, 
 select * from monitoramentoRede;
 drop table monitoramentoRede;
 
-SELECT upload FROM monitoramentoRede ORDER BY dataHora DESC LIMIT 1;
+SELECT upload FROM monitoramentoRede WHERE fkMaquina = 1  ORDER BY dataHora DESC LIMIT 1;
 
 select upload, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = 2;
 select download, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = 2;
+
+select download, upload, DATE_FORMAT(dataHora, '%Hh:%i:%s') AS Horário from monitoramentoRede where fkMaquina = 2;

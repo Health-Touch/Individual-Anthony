@@ -35,4 +35,12 @@ router.get("/tempo-medidasRede/:idMaquina", function (req, res) {
     medidaController.buscarMedidasRede(req, res);
 })
 
+router.get("/buscarGraficoPing/:idMaquina", function (req, res) {
+    medidaController.buscarGraficoPing(req, res);
+})
+
+router.get("/atualizarGrafico/:idMaquina", function (req, res) {
+    medidaController.atualizarGrafico(req, res);
+})
+
 module.exports = router;

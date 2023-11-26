@@ -216,7 +216,6 @@ function updateStatusFunc(opcaoUpdate, idFunc) {
 }
 
 // começo do individual do tony
-
 function selectUpload(idMaquina) {
   console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():", idMaquina)
   var instrucao = `
@@ -252,6 +251,7 @@ function selectIp(idMaquina) {
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
+// fim do individual
 
 module.exports = {
   entrar,

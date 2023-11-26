@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/analiseRepresentante.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Análise Representante | Health Touch</title>
+    <link rel="shortcut icon" type="imagex/png" href="./assets/img/logo_icon.png" />
+</head>
+
+<body>
+
+    <div class="divPai">
+        <!-- inicio menu lateral -->
+        <div class="divPaiLateral">
+            <div class="filhoLateral">
+
+                <div class="divNomeEmpresa">
+
+                    <p id="textoEmpresa">Bem Vindo</p>
+                    <p id="nomeEmpresa"></p>
+                </div>
+
+                <div class="divMainMenu">
+                    <p id="pMainMenu">MAIN MENU</p>
+                </div>
+
+                <div class="divPaiOpcoesMenu">
+                    <a href="../setores.html" id="pMenuLateral">
+                        <div class="divHome">
+                            <img id="iconMenuLateralHome" src="../assets/img/grafico-de-setores.png">
+                            <div class="divEspaco"></div>
+                            Setores
+                        </div>
+                    </a>
+
+                    <a href="../cadastro/cadastroMaquinas.html" id="pMenuLateral">
+                        <div class="divComputador">
+                            <img id="iconComputadorLateral" src="../assets/img/computador (4).png">
+                            <div class="divEspaco"></div>
+                            Cadastro Máquinas
+                        </div>
+                    </a>
+
+                    <a href="../analise/analiseMaquinaTI.html" id="pMenuLateral">
+                        <div class="divCadastroComputador">
+                            <img id="iconComputadorCadLateral" src="../assets/img/definicoes.png">
+                            <div class="divEspaco"></div>
+                            Análise Máquinas
+                        </div>
+                    </a>
+
+                    <a href="../cadastro/cadastroFuncionarios.html" id="pMenuLateral">
+                        <div class="divAnaliseEquipe">
+                            <img id="iconAnaliseEquipe" src="../assets/img/carteira-de-identidade.png">
+                            <div class="divEspaco"></div>
+                            Cadastro Equipe
+                        </div>
+                    </a>
+
+                    <a href="../analise/analiseFuncionario.html" id="pMenuLateral">
+                        <div class="divDashboards">
+                            <img id="iconDashboardsLateral" src="../assets/img/equipe.png">
+                            <div class="divEspaco"></div>
+                            Análise Funcionários
+                        </div>
+                    </a>
+
+                    <a href="" id="pMenuLateral">
+                        <div class="divCadastroEquipe">
+                            <img id="iconCadastroEquipe" src="../assets/img/mais (2).png">
+                            <div class="divEspaco"></div>
+                            Dashboards
+                        </div>
+                    </a>
+                </div>
+
+                <div class="divEspacoV2"></div>
+
+                <div class="divHelp">
+                    <p id="pHelp">HELP</p>
+                </div>
+
+                <div class="divPaiHelpMenu">
+                    <a href="../suporte/SuporteHealthTooch.html" id="pMenuLateral">
+                        <div class="divHelpDesk">
+                            <img id="iconHelpDesk" src="../assets/img/suporte-ao-cliente.png">
+                            <div class="divEspaco"></div>
+                            HelpDesk
+                        </div>
+                    </a>
+                    <a href="../atualizar/AtualizarUser.html" id="pMenuLateral">
+                        <div class="divConfiguracoes">
+                            <img id="iconConfiguracoes" src="../assets/img/botao-de-roda-dentada-de-configuracoes.png">
+                            <div class="divEspaco"></div>
+                            Configurações
+                        </div>
+                    </a>
+                    <a href="../index.html">
+                        <img id="logoMenuLateral" src="../assets/img/logoMenu.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- fim do menu lateral -->
+
+        <!-- inicio do cabeçalho -->
+        <div class="divPaiCabecalho">
+            <div class="filhoCabecalho">
+
+                <div class="esquerdaCabecalho"></div>
+
+                <div class="direitaCabecalho">
+                    <img class="sinoIconCabecalho" src="../assets/img/notificacaoIcon.png">
+                    <div class="divPerfilCabecalho">
+                        <img class="iconPerfilCabecalho" src="../assets/img/fotoPerfil.png">
+                        <div class="textosIcon">
+                            <p id="tituloPerfil">Anthony Bento</p>
+                            <p id="cargoPerfil">CEO</p>
+                        </div>
+                        <img class="setaPerfilCabecalho" src="../assets/img/setaIcon.png" onclick="exibirMenuPerfil()">
+                        <div id="menuPerfil" class="menuPerfil"
+                            style="display: none; position: absolute; z-index: 1; top: 58px;">
+                            <ul>
+                                <button class="btnSair">
+                                    <div class="sign"><svg viewBox="0 0 512 512">
+                                            <path
+                                                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                            </path>
+                                        </svg></div>
+
+                                    <div class="txtBtn" onclick="limparSessao()">Sair</div>
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fim do cabeçalho -->
+
+            <!-- começo conteudo pagina -->
+            <div class="divPaiConteudo">
+                <div class="filhoConteudo">
+
+                    <div class="divTitulo">
+                        <p id="pTituloSetor">Análise Geral dos Setores <span id="numSala"></span></p>
+                        <button class="btnTrocar" onclick="trocarComputador()">Trocar</button>
+                        <button class="btnTrocarHistorico" onclick="trocarComputador()">Histórico</button>
+                    </div>
+
+                    <div class="divPaiGraficos">
+                        <div class="divPaiEsquerda"></div>
+
+                        <div class="divPaiDireita">
+
+                            <div class="divPaiLinha1">
+
+                                <div class="divKpi">
+
+                                    <div class="barraLateral"></div>
+
+                                    <div class="conteudoKpi">
+                                        <p id="pTituloKpi">Total de Consultas <br> no Mês Atual</p>
+                                        <p id="pTotalConsultas">20 Consultas</p>
+                                        <p id="pDescConsultas">+ 20% que o mês passado</p>
+                                    </div>
+
+                                    <div class="iconKpi">
+                                        <img id="imgIcon" src="../assets/img/cama-de-">
+                                    </div>
+
+                                </div>
+
+                                <div class="divKpi">
+                                    <div class="barraLateral"></div>
+
+                                    <div class="conteudoKpi">
+                                        <p id="pTituloKpi">Toten Mais Utilizado <br> no Mês Atual</p>
+                                        <p id="pTotenMaisUtilizado">Toten 2</p>
+                                        <p id="pDescTotenMaisUtilizado">Mês Passado: Toten 1</p>
+                                    </div>
+
+                                    <div class="iconKpi">
+                                        <img id="imgIcon" src="../assets/img/wi-fi.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divPaiLinha2">
+                                <div class="divKpi">
+                                    <div class="barraLateral"></div>
+
+                                    <div class="conteudoKpi">
+                                        <p id="pTituloKpi">Setor Mais Utilizado <br> no Mês Atual</p>
+                                        <p id="pSetorMaisUtilizado">Pediatria</p>
+                                        <p id="pDescSetorMaisUtilizado">Mês Passado: Odontologia</p>
+                                    </div>
+
+                                    <div class="iconKpi">
+                                        <img id="imgIcon" src="../assets/img/wi-fi.png">
+                                    </div>
+                                </div>
+                                <div class="divKpi">
+                                    <div class="barraLateral"></div>
+
+                                    <div class="conteudoKpi">
+                                        <p id="pTituloKpi">Setor Menos Utilizado <br> no Mês Atual</p>
+                                        <p id="pSetorMenosUtilizado">Odontologia</p>
+                                        <p id="pDescSetorMenosUtilizado">Mês Passado: Pediatria</p>
+                                    </div>
+
+                                    <div class="iconKpi">
+                                        <img id="imgIcon" src="../assets/img/wi-fi.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divPaiLinha3">
+                                <div class="divKpi">
+                                    <div class="barraLateral"></div>
+
+                                    <div class="conteudoKpi">
+                                        <p id="pTituloKpi">Dia Mais Movimentado <br> no Mês Atual</p>
+                                        <p id="pDiaMaisUtilizado">Dia 12</p>
+                                        <p id="pDescDiaMaisUtilizado">Mês Passado: Dia 14</p>
+                                    </div>
+
+                                    <div class="iconKpi">
+                                        <img id="imgIcon" src="../assets/img/wi-fi.png">
+                                    </div>
+                                </div>
+                                <div class="divKpi">
+                                    <div class="barraLateral"></div>
+
+                                    <div class="conteudoKpi">
+                                        <p id="pTituloKpi">Dia Menos Movimentado <br> no Mês Atual</p>
+                                        <p id="pDiaMenosUtilizado">Dia 28</p>
+                                        <p id="pDescDiaMenosUtilizado">Mês Passado: 26</p>
+                                    </div>
+
+                                    <div class="iconKpi">
+                                        <img id="imgIcon" src="../assets/img/wi-fi.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- fim conteudo pagina -->
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+<script>
+
+    function trocarComputador() {
+        window.location = "../setores.html"
+    }
+
+    var cargo = sessionStorage.NIVELACESSO_COLABORADOR;
+
+    if (cargo == "RL") {
+        cargo = "Representante"
+        SumirCadMaq.style.display = "none";
+        SumirAnaliseMaq.style.display = "none";
+    } else if (cargo == "GT") {
+        cargo = "Gerente TI"
+    }
+    else {
+        cargo = "Equipe TI";
+        SumirCadMaq.style.display = "none";
+        SumirCadEquipe.style.display = "none";
+        SumirAnaliseFunc.style.display = "none";
+        divCadastroEquipe.style.top = "18%";
+    }
+
+    cargoPerfil.innerHTML = cargo;
+    nomeEmpresa.innerHTML = sessionStorage.NOME_FANTASIA_COLABORADOR;
+    tituloPerfil.innerHTML = sessionStorage.NOME_COLABORADOR;
+    pNomeSetor.innerHTML = sessionStorage.NOME_SETOR;
+    numSala.innerHTML = sessionStorage.ID_SALA;
+    numComputador.innerHTML = sessionStorage.ID_MAQUINA;
+
+</script>

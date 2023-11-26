@@ -546,8 +546,6 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGraficoCpu(dados, myChart2, idMaquina) {
 
-
-
         fetch(`/medidas/tempo-realCpu/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -699,8 +697,6 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGraficoRam(idMaquina, dados, myChart3) {
 
-
-
         fetch(`/medidas/tempo-realRam/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -773,8 +769,6 @@
                         feed.innerHTML += `<div class="Dados">
                                 <p id="campoId"> ${publicacao.idUSB}</p> <p id="campoNome">${publicacao.nomeUsb}</p>  <p id="campoStatus">Desconectado</p>  <p id="campoDt">${publicacao.dtHoraInsercao}</p>
                             </div>`
-
-
 
                         // criando e manipulando elementos do HTML via JavaScript
                         // var divPublicacao = document.createElement("div");
